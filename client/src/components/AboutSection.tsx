@@ -1,10 +1,12 @@
-import { resumeData } from "@/lib/resumeData";
 import { Button } from "@/components/ui/button";
 import { generatePDF } from "@/lib/pdfGenerator";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function AboutSection() {
-  const { personalInfo, expertise } = resumeData;
+interface AboutSectionProps {
+  personalInfo: ResumeDataType['personalInfo'];
+}
 
+export default function AboutSection({ personalInfo }: AboutSectionProps) {
   const handleDownloadResume = () => {
     generatePDF();
   };
@@ -44,7 +46,7 @@ export default function AboutSection() {
             <div className="md:w-1/3 mt-8 md:mt-0">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">Core Expertise</h3>
               <ul className="space-y-2">
-                {expertise.map((skill, index) => (
+                {personalInfo.expertise.map((skill, index) => (
                   <li key={index} className="flex items-start">
                     <i className="fas fa-check-circle text-[#059669] mt-1 mr-2"></i>
                     <span>{skill}</span>

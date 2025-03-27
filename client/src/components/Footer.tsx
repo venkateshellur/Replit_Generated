@@ -1,7 +1,11 @@
-import { resumeData } from "@/lib/resumeData";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function Footer() {
-  const { personalInfo, socialLinks } = resumeData;
+interface FooterProps {
+  socialLinks: ResumeDataType['socialLinks'];
+  personalInfo?: { name: string; title: string }; // Optional since we have default values
+}
+
+export default function Footer({ socialLinks, personalInfo = { name: "Software Architect", title: "Senior Software Architect" } }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (

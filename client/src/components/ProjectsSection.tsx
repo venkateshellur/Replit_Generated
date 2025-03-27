@@ -1,8 +1,11 @@
-import { resumeData } from "@/lib/resumeData";
 import { useEffect, useRef } from "react";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function ProjectsSection() {
-  const { projects } = resumeData;
+interface ProjectsSectionProps {
+  projects: ResumeDataType['projects'];
+}
+
+export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   
   useEffect(() => {

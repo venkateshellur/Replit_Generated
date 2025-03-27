@@ -1,7 +1,11 @@
-import { resumeData } from "@/lib/resumeData";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function Sidebar() {
-  const { personalInfo, socialLinks } = resumeData;
+interface SidebarProps {
+  personalInfo: ResumeDataType['personalInfo'];
+  socialLinks: ResumeDataType['socialLinks'];
+}
+
+export default function Sidebar({ personalInfo, socialLinks }: SidebarProps) {
   
   return (
     <aside className="lg:fixed lg:w-64 lg:h-screen bg-white shadow-lg z-10 hidden lg:block">

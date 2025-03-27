@@ -1,8 +1,11 @@
-import { resumeData } from "@/lib/resumeData";
 import { useEffect, useRef } from "react";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function SkillsSection() {
-  const { skills } = resumeData;
+interface SkillsSectionProps {
+  skills: ResumeDataType['skills'];
+}
+
+export default function SkillsSection({ skills }: SkillsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {

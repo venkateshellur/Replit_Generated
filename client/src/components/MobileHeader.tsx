@@ -1,13 +1,19 @@
-import { resumeData } from "@/lib/resumeData";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
 interface MobileHeaderProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   closeMenu: () => void;
+  personalInfo: ResumeDataType['personalInfo'];
 }
 
-export default function MobileHeader({ isMenuOpen, toggleMenu, closeMenu }: MobileHeaderProps) {
-  const { personalInfo, socialLinks } = resumeData;
+export default function MobileHeader({ isMenuOpen, toggleMenu, closeMenu, personalInfo }: MobileHeaderProps) {
+  // Hardcoded social links for mobile header to simplify
+  const socialLinks = [
+    { name: "GitHub", url: "https://github.com", icon: "github" },
+    { name: "LinkedIn", url: "https://linkedin.com", icon: "linkedin" },
+    { name: "Twitter", url: "https://twitter.com", icon: "twitter" }
+  ];
   
   return (
     <header className="lg:hidden bg-white shadow-md sticky top-0 z-10">

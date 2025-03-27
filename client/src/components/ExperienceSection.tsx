@@ -1,8 +1,11 @@
-import { resumeData } from "@/lib/resumeData";
 import { useEffect, useRef } from "react";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function ExperienceSection() {
-  const { experience } = resumeData;
+interface ExperienceSectionProps {
+  experienceItems: ResumeDataType['experience'];
+}
+
+export default function ExperienceSection({ experienceItems }: ExperienceSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -37,12 +40,12 @@ export default function ExperienceSection() {
           Work Experience
         </h2>
         
-        {experience.map((job, index) => (
+        {experienceItems.map((job, index) => (
           <div 
             key={index} 
-            className={`mb-${index === experience.length - 1 ? "0" : "12"} relative experience-item opacity-0 translate-y-4 transition-all duration-500 ease-in-out`}
+            className={`mb-${index === experienceItems.length - 1 ? "0" : "12"} relative experience-item opacity-0 translate-y-4 transition-all duration-500 ease-in-out`}
           >
-            {index < experience.length - 1 && (
+            {index < experienceItems.length - 1 && (
               <div className="absolute top-0 bottom-0 left-8 w-px bg-gray-200 -ml-px hidden md:block"></div>
             )}
             <div className="flex flex-col md:flex-row">

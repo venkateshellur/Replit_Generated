@@ -1,8 +1,17 @@
-import { resumeData } from "@/lib/resumeData";
 import { useEffect, useRef } from "react";
+import { ResumeDataType } from "@/hooks/use-resume-data";
 
-export default function EducationSection() {
-  const { education, certifications } = resumeData;
+interface EducationSectionProps {
+  educationItems: ResumeDataType['education'];
+}
+
+export default function EducationSection({ educationItems }: EducationSectionProps) {
+  // Using the education items from props and getting certifications from static data for simplicity
+  const certifications = [
+    { name: "AWS Solutions Architect Professional", issuer: "Amazon Web Services", year: "2022" },
+    { name: "Certified Kubernetes Administrator", issuer: "CNCF", year: "2021" },
+    { name: "Google Professional Cloud Architect", issuer: "Google Cloud", year: "2020" }
+  ];
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -38,7 +47,7 @@ export default function EducationSection() {
         </h2>
         
         <div className="grid gap-8 md:grid-cols-2">
-          {education.map((edu, index) => (
+          {educationItems.map((edu, index) => (
             <div key={index} className="bg-white rounded-lg shadow-sm p-6 fade-element opacity-0 translate-y-4 transition-all duration-500 ease-in-out">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-[#DBEAFE] rounded-full flex items-center justify-center mr-4">

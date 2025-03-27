@@ -8,22 +8,14 @@ import {
   skills, type Skill, type InsertSkill, type SkillsByCategory,
   projects, type Project, type InsertProject
 } from "@shared/schema";
-import { drizzle } from "drizzle-orm/neon-serverless";
-import { neon } from "@neondatabase/serverless";
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import { eq } from "drizzle-orm";
-import pg from "pg";
 
-// Create new PostgreSQL client for direct operations
-const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL!,
-});
-
-// Connect to the database
-client.connect();
-
-// Create a new database connection for Drizzle
-const sql = neon(process.env.DATABASE_URL!);
-const db = drizzle(sql);
+// Create a PostgreSQL connection
+const client = postgres(process.env.DATABASE_URL!);
+// Create a Drizzle instance with the PostgreSQL client
+const db = drizzle(client);
 
 export interface IStorage {
   // Users

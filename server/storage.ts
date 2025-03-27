@@ -11,10 +11,18 @@ import {
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { neon } from "@neondatabase/serverless";
 import { eq } from "drizzle-orm";
+import pg from "pg";
 
-// Database connection
+// Create new PostgreSQL client for direct operations
+const client = new pg.Client({
+  connectionString: process.env.DATABASE_URL!,
+});
+
+// Connect to the database
+client.connect();
+
+// Create a new database connection for Drizzle
 const sql = neon(process.env.DATABASE_URL!);
-// @ts-ignore - Ignoring type error for Neon connection
 const db = drizzle(sql);
 
 export interface IStorage {

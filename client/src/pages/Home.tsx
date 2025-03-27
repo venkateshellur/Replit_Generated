@@ -85,7 +85,7 @@ export default function Home() {
         <SkillsSection skills={resumeData.skills} />
         <ProjectsSection projects={resumeData.projects} />
         <ContactSection />
-        <Footer socialLinks={resumeData.socialLinks} />
+        <Footer socialLinks={resumeData.socialLinks} personalInfo={resumeData.personalInfo} />
       </main>
     </div>
   );

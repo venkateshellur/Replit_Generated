@@ -15,10 +15,10 @@ export default function AboutSection({ personalInfo }: AboutSectionProps) {
   const greetingText = `// Hello, I'm ${personalInfo.name}\n// Senior ${personalInfo.title}\n`;
   
   return (
-    <section id="about" className="relative bg-black py-20 px-6 md:px-12">
+    <section id="about" className="relative bg-black py-20 px-6 md:px-12 z-0">
       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#4f4f4f_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-1">
         <div className="terminal-box mb-6">
           <div className="terminal-header">
             <div className="terminal-dot bg-red-500"></div>

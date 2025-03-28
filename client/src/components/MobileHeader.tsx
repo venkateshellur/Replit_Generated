@@ -16,7 +16,7 @@ export default function MobileHeader({ isMenuOpen, toggleMenu, closeMenu, person
   ];
   
   return (
-    <header className="lg:hidden bg-background/95 backdrop-blur-sm border-b border-zinc-800 sticky top-0 z-10">
+    <header className="lg:hidden bg-background/95 backdrop-blur-sm border-b border-zinc-800 sticky top-0 z-50">
       <div className="terminal-box m-2">
         <div className="terminal-header">
           <div className="terminal-dot bg-red-500"></div>

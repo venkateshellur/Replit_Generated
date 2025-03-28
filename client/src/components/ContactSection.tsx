@@ -28,10 +28,10 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function ContactSection() {
-  const { data } = useResumeData();
+  const { resumeData, isLoading } = useResumeData();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const personalInfo = data?.personalInfo;
+  const personalInfo = resumeData.personalInfo;
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -99,11 +99,16 @@ export default function ContactSection() {
                 <span className="text-xs text-zinc-400 ml-2 font-fira">readme.md</span>
               </div>
               <div className="p-3">
-                <p className="command-line">Let's connect!</p>
-                <p className="command-output mb-2">
+                <div className="font-mono text-xs text-zinc-300 pl-5 relative">
+                  <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                  Let's connect!
+                </div>
+                <p className="text-xs text-zinc-400 mb-2 mt-1 pl-5">
                   Interested in working together? Feel free to reach out through the form or using the contact information below.
                 </p>
-                <p className="command-line terminal-cursor">_</p>
+                <div className="font-mono text-xs text-zinc-300 pl-5 relative">
+                  <span className="absolute left-0 text-primary font-bold terminal-cursor">_</span>
+                </div>
               </div>
             </div>
             

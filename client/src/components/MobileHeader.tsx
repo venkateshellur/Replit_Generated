@@ -16,101 +16,133 @@ export default function MobileHeader({ isMenuOpen, toggleMenu, closeMenu, person
   ];
   
   return (
-    <header className="lg:hidden bg-white shadow-md sticky top-0 z-10">
-      <div className="flex items-center justify-between p-4">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-light">
-            <svg 
-              className="w-full h-full text-gray-300 bg-gray-100"
-              fill="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-          </div>
-          <div>
-            <h1 className="text-lg font-bold text-primary">{personalInfo.name}</h1>
-            <p className="text-xs text-gray-600">{personalInfo.title}</p>
-          </div>
+    <header className="lg:hidden bg-background/95 backdrop-blur-sm border-b border-zinc-800 sticky top-0 z-10">
+      <div className="terminal-box m-2">
+        <div className="terminal-header">
+          <div className="terminal-dot bg-red-500"></div>
+          <div className="terminal-dot bg-yellow-500"></div>
+          <div className="terminal-dot bg-green-500"></div>
+          <span className="text-xs text-zinc-400 ml-2 font-fira">header.tsx</span>
         </div>
-        <button 
-          onClick={toggleMenu}
-          className="text-gray-700 focus:outline-none" 
-          aria-label="Menu"
-        >
-          <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
-        </button>
+        <div className="p-2 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-zinc-900 border border-primary/20 rounded-lg flex items-center justify-center shadow-sm">
+              <span className="text-primary text-sm font-mono">{`{}`}</span>
+            </div>
+            <div>
+              <h1 className="text-sm font-bold font-mono text-zinc-200">{personalInfo.name}</h1>
+              <p className="text-xs font-mono text-zinc-400">{personalInfo.title}</p>
+            </div>
+          </div>
+          <button 
+            onClick={toggleMenu}
+            className="text-zinc-400 hover:text-primary focus:outline-none transition-colors" 
+            aria-label="Menu"
+          >
+            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-lg`}></i>
+          </button>
+        </div>
       </div>
-      <nav className={`${isMenuOpen ? 'block' : 'hidden'} bg-white pb-4`}>
-        <ul className="space-y-1 px-4">
-          <li>
-            <a 
-              href="#about" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-user mr-2"></i>About
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#experience" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-briefcase mr-2"></i>Experience
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#education" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-graduation-cap mr-2"></i>Education
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#skills" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-code mr-2"></i>Skills
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#projects" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-project-diagram mr-2"></i>Projects
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#contact" 
-              onClick={closeMenu}
-              className="block p-2 rounded hover:bg-primary-light text-gray-700 hover:text-primary transition duration-200"
-            >
-              <i className="fas fa-envelope mr-2"></i>Contact
-            </a>
-          </li>
-        </ul>
-        <div className="flex justify-center space-x-6 mt-4">
-          {socialLinks.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.url} 
-              className="text-gray-600 hover:text-primary transition duration-200" 
-              aria-label={link.name}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className={`fab fa-${link.icon} text-xl`}></i>
-            </a>
-          ))}
+      
+      <nav className={`${isMenuOpen ? 'block' : 'hidden'} bg-background pb-4 px-2`}>
+        <div className="terminal-box mb-2">
+          <div className="terminal-header">
+            <div className="terminal-dot bg-red-500"></div>
+            <div className="terminal-dot bg-yellow-500"></div>
+            <div className="terminal-dot bg-green-500"></div>
+            <span className="text-xs text-zinc-400 ml-2 font-fira">nav.tsx</span>
+          </div>
+          <ul className="py-1 px-2 space-y-1">
+            <li>
+              <a 
+                href="#about" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /about
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#experience" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /experience
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#education" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /education
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#skills" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /skills
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#projects" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /projects
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#contact" 
+                onClick={closeMenu}
+                className="font-mono text-xs text-zinc-300 pl-5 relative block py-1 hover:text-primary transition-colors"
+              >
+                <span className="absolute left-0 text-primary font-bold">&gt;</span>
+                cd /contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="terminal-box">
+          <div className="terminal-header">
+            <div className="terminal-dot bg-red-500"></div>
+            <div className="terminal-dot bg-yellow-500"></div>
+            <div className="terminal-dot bg-green-500"></div>
+            <span className="text-xs text-zinc-400 ml-2 font-fira">social.tsx</span>
+          </div>
+          <div className="py-2 px-4">
+            <div className="font-mono text-xs text-zinc-300 pl-5 relative mb-2">
+              <span className="absolute left-0 text-primary font-bold">&gt;</span>
+              connect.social()
+            </div>
+            <div className="flex justify-center space-x-6">
+              {socialLinks.map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  className="text-zinc-400 hover:text-primary transition-colors" 
+                  aria-label={link.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className={`fab fa-${link.icon} text-lg`}></i>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </nav>
     </header>

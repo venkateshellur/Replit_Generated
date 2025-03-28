@@ -68,7 +68,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 px-6 md:px-12 bg-background/50">
+    <section id="contact" className="py-16 px-6 md:px-12 bg-background">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold gradient-text flex items-center gap-2 mb-8">
           <MessageSquare className="h-8 w-8 text-primary" />
@@ -80,9 +80,9 @@ export default function ContactSection() {
             <div className="terminal-dot bg-red-500"></div>
             <div className="terminal-dot bg-yellow-500"></div>
             <div className="terminal-dot bg-green-500"></div>
-            <span className="text-xs text-muted-foreground ml-2 font-fira">contact.js</span>
+            <span className="text-xs text-zinc-400 ml-2 font-fira">contact.js</span>
           </div>
-          <pre className="text-xs font-fira text-primary/90 p-2">
+          <pre className="text-xs font-fira text-primary p-2">
 {`// Initializing contact module
 // Establishing communication channels
 // Ready to receive messages`}
@@ -91,26 +91,36 @@ export default function ContactSection() {
         
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <div className="terminal-box p-4 mb-8">
-              <p className="text-foreground/90 text-sm font-fira">
-                Interested in working together? Feel free to reach out through the form or using the contact information below.
-              </p>
+            <div className="terminal-box mb-6">
+              <div className="terminal-header">
+                <div className="terminal-dot bg-red-500"></div>
+                <div className="terminal-dot bg-yellow-500"></div>
+                <div className="terminal-dot bg-green-500"></div>
+                <span className="text-xs text-zinc-400 ml-2 font-fira">readme.md</span>
+              </div>
+              <div className="p-3">
+                <p className="command-line">Let's connect!</p>
+                <p className="command-output mb-2">
+                  Interested in working together? Feel free to reach out through the form or using the contact information below.
+                </p>
+                <p className="command-line terminal-cursor">_</p>
+              </div>
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="terminal-box">
                 <div className="terminal-header">
                   <div className="terminal-dot bg-red-500"></div>
                   <div className="terminal-dot bg-yellow-500"></div>
                   <div className="terminal-dot bg-green-500"></div>
-                  <span className="text-xs text-muted-foreground ml-2 font-fira">email.sh</span>
+                  <span className="text-xs text-zinc-400 ml-2 font-fira">email.sh</span>
                 </div>
                 <div className="p-3 flex items-start">
-                  <div className="w-10 h-10 bg-black/70 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-lg shadow-primary/5">
-                    <Mail className="h-5 w-5 text-primary/80" />
+                  <div className="w-10 h-10 bg-zinc-900 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                    <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-foreground">Email</h4>
+                    <h4 className="text-base font-bold text-zinc-200">Email</h4>
                     <a 
                       href={`mailto:${personalInfo.email}`} 
                       className="text-primary hover:text-primary/80 font-mono text-sm transition-colors"
@@ -126,14 +136,14 @@ export default function ContactSection() {
                   <div className="terminal-dot bg-red-500"></div>
                   <div className="terminal-dot bg-yellow-500"></div>
                   <div className="terminal-dot bg-green-500"></div>
-                  <span className="text-xs text-muted-foreground ml-2 font-fira">phone.sh</span>
+                  <span className="text-xs text-zinc-400 ml-2 font-fira">phone.sh</span>
                 </div>
                 <div className="p-3 flex items-start">
-                  <div className="w-10 h-10 bg-black/70 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-lg shadow-primary/5">
-                    <Phone className="h-5 w-5 text-primary/80" />
+                  <div className="w-10 h-10 bg-zinc-900 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                    <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-foreground">Phone</h4>
+                    <h4 className="text-base font-bold text-zinc-200">Phone</h4>
                     <a 
                       href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} 
                       className="text-primary hover:text-primary/80 font-mono text-sm transition-colors"
@@ -149,15 +159,15 @@ export default function ContactSection() {
                   <div className="terminal-dot bg-red-500"></div>
                   <div className="terminal-dot bg-yellow-500"></div>
                   <div className="terminal-dot bg-green-500"></div>
-                  <span className="text-xs text-muted-foreground ml-2 font-fira">location.sh</span>
+                  <span className="text-xs text-zinc-400 ml-2 font-fira">location.sh</span>
                 </div>
                 <div className="p-3 flex items-start">
-                  <div className="w-10 h-10 bg-black/70 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-lg shadow-primary/5">
-                    <MapPin className="h-5 w-5 text-primary/80" />
+                  <div className="w-10 h-10 bg-zinc-900 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                    <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-foreground">Location</h4>
-                    <p className="text-foreground/80 font-mono text-sm">{personalInfo.location}</p>
+                    <h4 className="text-base font-bold text-zinc-200">Location</h4>
+                    <p className="text-zinc-400 font-mono text-sm">{personalInfo.location}</p>
                   </div>
                 </div>
               </div>
@@ -167,14 +177,14 @@ export default function ContactSection() {
                   <div className="terminal-dot bg-red-500"></div>
                   <div className="terminal-dot bg-yellow-500"></div>
                   <div className="terminal-dot bg-green-500"></div>
-                  <span className="text-xs text-muted-foreground ml-2 font-fira">linkedin.sh</span>
+                  <span className="text-xs text-zinc-400 ml-2 font-fira">linkedin.sh</span>
                 </div>
                 <div className="p-3 flex items-start">
-                  <div className="w-10 h-10 bg-black/70 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-lg shadow-primary/5">
-                    <Linkedin className="h-5 w-5 text-primary/80" />
+                  <div className="w-10 h-10 bg-zinc-900 border border-primary/20 rounded-lg flex items-center justify-center mr-4 shadow-md">
+                    <Linkedin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-foreground">LinkedIn</h4>
+                    <h4 className="text-base font-bold text-zinc-200">LinkedIn</h4>
                     <a 
                       href={personalInfo.linkedin} 
                       className="text-primary hover:text-primary/80 font-mono text-sm transition-colors"
@@ -194,7 +204,7 @@ export default function ContactSection() {
               <div className="terminal-dot bg-red-500"></div>
               <div className="terminal-dot bg-yellow-500"></div>
               <div className="terminal-dot bg-green-500"></div>
-              <span className="text-xs text-muted-foreground ml-2 font-fira">message-form.jsx</span>
+              <span className="text-xs text-zinc-400 ml-2 font-fira">message-form.jsx</span>
             </div>
             <div className="p-4">
               <Form {...form}>
@@ -204,15 +214,15 @@ export default function ContactSection() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-mono text-foreground">Name:</FormLabel>
+                        <FormLabel className="text-sm font-mono text-zinc-300">Name:</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your name" 
-                            className="bg-background/40 border-primary/30 text-foreground placeholder:text-muted-foreground/50 font-mono text-sm focus-visible:ring-primary" 
+                            className="bg-zinc-900/80 border-zinc-700 text-zinc-300 placeholder:text-zinc-600 font-mono text-sm focus-visible:ring-primary" 
                             {...field} 
                           />
                         </FormControl>
-                        <FormMessage className="text-xs" />
+                        <FormMessage className="text-xs text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -222,16 +232,16 @@ export default function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-mono text-foreground">Email:</FormLabel>
+                        <FormLabel className="text-sm font-mono text-zinc-300">Email:</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your email address" 
                             type="email"
-                            className="bg-background/40 border-primary/30 text-foreground placeholder:text-muted-foreground/50 font-mono text-sm focus-visible:ring-primary" 
+                            className="bg-zinc-900/80 border-zinc-700 text-zinc-300 placeholder:text-zinc-600 font-mono text-sm focus-visible:ring-primary" 
                             {...field} 
                           />
                         </FormControl>
-                        <FormMessage className="text-xs" />
+                        <FormMessage className="text-xs text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -241,15 +251,15 @@ export default function ContactSection() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-mono text-foreground">Subject:</FormLabel>
+                        <FormLabel className="text-sm font-mono text-zinc-300">Subject:</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Subject of your message" 
-                            className="bg-background/40 border-primary/30 text-foreground placeholder:text-muted-foreground/50 font-mono text-sm focus-visible:ring-primary" 
+                            className="bg-zinc-900/80 border-zinc-700 text-zinc-300 placeholder:text-zinc-600 font-mono text-sm focus-visible:ring-primary" 
                             {...field} 
                           />
                         </FormControl>
-                        <FormMessage className="text-xs" />
+                        <FormMessage className="text-xs text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -259,16 +269,16 @@ export default function ContactSection() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-mono text-foreground">Message:</FormLabel>
+                        <FormLabel className="text-sm font-mono text-zinc-300">Message:</FormLabel>
                         <FormControl>
                           <Textarea 
                             placeholder="Your message" 
-                            className="bg-background/40 border-primary/30 text-foreground placeholder:text-muted-foreground/50 font-mono text-sm focus-visible:ring-primary resize-y min-h-[100px]" 
+                            className="bg-zinc-900/80 border-zinc-700 text-zinc-300 placeholder:text-zinc-600 font-mono text-sm focus-visible:ring-primary resize-y min-h-[100px]" 
                             rows={4}
                             {...field} 
                           />
                         </FormControl>
-                        <FormMessage className="text-xs" />
+                        <FormMessage className="text-xs text-red-400" />
                       </FormItem>
                     )}
                   />

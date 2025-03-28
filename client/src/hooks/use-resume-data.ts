@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getQueryFn } from "@/lib/queryClient";
+import { resumeData as staticResumeData } from "@/lib/resumeData";
 
 export interface ResumeDataType {
   personalInfo: {
@@ -100,28 +99,22 @@ export interface ResumeDataType {
   }>;
 }
 
-// Fallback to the static data if necessary
-import { resumeData as staticResumeData } from "@/lib/resumeData";
-
 export function useResumeData() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['/api/resume'],
-    queryFn: getQueryFn<ResumeDataType>({ on401: "returnNull" }),
-  });
-
-  // Transform the API data to match the format expected by the components
-  const transformedData = data ? {
-    personalInfo: data.personalInfo,
-    socialLinks: data.socialLinks,
-    experience: data.experience,
-    education: data.education,
-    certifications: data.certifications,
-    skills: data.skills,
-    projects: data.projects
-  } : staticResumeData;
+  // Simulate a loading state for 500ms to show loading UI
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  
+  useEffect(() => {
+    // Simulate API loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return {
-    resumeData: transformedData,
+    resumeData: staticResumeData,
     isLoading,
     isError
   };

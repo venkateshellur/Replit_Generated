@@ -7,8 +7,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["Space Mono", "Roboto Mono", "ui-monospace", "monospace"],
+        mono: ["JetBrains Mono", "Space Mono", "Roboto Mono", "ui-monospace", "monospace"],
         fira: ["Fira Code", "monospace"],
+        jetbrains: ["JetBrains Mono", "monospace"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -66,6 +67,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        code: {
+          DEFAULT: "#f5f5f5",
+          border: "#e5e5e5",
+          foreground: "#24292e",
+        },
+        terminal: {
+          dark: "#1e1e1e",
+          light: "#f5f5f5",
+          blue: "hsl(210, 100%, 55%)",
+        },
       },
       keyframes: {
         "accordion-down": {
@@ -84,10 +95,19 @@ export default {
             height: "0",
           },
         },
+        "blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "cursor-blink": "blink 1s infinite",
+      },
+      boxShadow: {
+        'code': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'terminal': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
     },
   },

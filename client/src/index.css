@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Roboto+Mono:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -22,26 +22,42 @@
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-blue-600;
   }
 
   .skill-bar {
-    @apply h-2 rounded-sm bg-primary/20 overflow-hidden;
+    @apply h-2 rounded-sm bg-zinc-200 overflow-hidden;
   }
 
   .skill-bar-fill {
-    @apply h-full bg-gradient-to-r from-primary to-primary/70;
+    @apply h-full bg-gradient-to-r from-primary to-blue-600;
   }
   
   .terminal-box {
-    @apply bg-black/90 rounded-lg border border-primary/30 p-4 shadow-lg shadow-primary/10;
+    @apply bg-white rounded-lg border border-zinc-200 p-4 shadow-lg shadow-zinc-100;
   }
 
   .terminal-header {
-    @apply flex items-center mb-2 border-b border-primary/20 pb-2;
+    @apply flex items-center mb-2 border-b border-zinc-100 pb-2;
   }
   
   .terminal-dot {
     @apply h-3 w-3 rounded-full mr-2;
+  }
+
+  .terminal-window {
+    @apply bg-zinc-800 rounded-lg border border-zinc-600 p-4 shadow-lg;
+  }
+  
+  .terminal-window .terminal-header {
+    @apply border-b border-zinc-700;
+  }
+  
+  .code-block {
+    @apply font-fira text-sm bg-zinc-50 border border-zinc-200 rounded-md p-3;
+  }
+  
+  .light-card {
+    @apply bg-white rounded-lg border border-zinc-200 p-5 shadow-sm;
   }
 }

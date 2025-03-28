@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getQueryFn } from "@/lib/queryClient";
 import { resumeData as staticResumeData } from "@/lib/resumeData";
 
 export interface ResumeDataType {
@@ -100,21 +101,26 @@ export interface ResumeDataType {
 }
 
 export function useResumeData() {
-  // Simulate a loading state for 500ms to show loading UI
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  
-  useEffect(() => {
-    // Simulate API loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['/api/resume'],
+    queryFn: getQueryFn<ResumeDataType>({ on401: "returnNull" }),
+  });
 
   return {
-    resumeData: staticResumeData,
+    resumeData: data || {
+      personalInfo: {} as ResumeDataType['personalInfo'],
+      socialLinks: [],
+      experience: [],
+      education: [],
+      certifications: [],
+      skills: {
+        programmingLanguages: [],
+        databases: [],
+        cloudDevOps: [],
+        architecture: []
+      },
+      projects: []
+    },
     isLoading,
     isError
   };

@@ -106,21 +106,11 @@ export function useResumeData() {
     queryFn: getQueryFn<ResumeDataType>({ on401: "returnNull" }),
   });
 
+  // If API data is available, use it; otherwise, fall back to static data
+  const resumeData = data || staticResumeData;
+
   return {
-    resumeData: data || {
-      personalInfo: {} as ResumeDataType['personalInfo'],
-      socialLinks: [],
-      experience: [],
-      education: [],
-      certifications: [],
-      skills: {
-        programmingLanguages: [],
-        databases: [],
-        cloudDevOps: [],
-        architecture: []
-      },
-      projects: []
-    },
+    resumeData,
     isLoading,
     isError
   };
